@@ -1,0 +1,59 @@
+{
+  "temps":
+          [
+            {
+              "min":"−12.3",
+              "max":0,
+              "clothes":"holly crap"
+            },
+            {
+              "min":0,
+              "max":10,
+              "clothes":"winter"
+
+            },
+            {
+              "min":10,
+              "max":17,
+              "clothes":"autumn"
+            },
+            {
+              "min":17,
+              "max":25,
+              "clothes":"spring"
+            },
+            {
+              "min":25,
+              "max":35,
+              "clothes":"summer"
+            }
+          ],
+  "conditions":
+          [
+            {
+              "type":"rain",
+              "accessory":"autumn"
+            },
+            {
+              "type":"bright sun",
+              "accessory":"summer"
+            },
+            {
+              "type":"windy",
+              "accessory":"hat"
+            },
+            {
+              "type":"snow",
+              "accessory":"scarf and hat"
+            }
+          ],
+  "clothTypes":
+  [
+    {
+      "winter":["scarf","hat","gloves","coat"],
+      "spring":["dress","shirt","shorts","skirt"],
+      "summer":["sunglasses","cap","sandals","t-shirt"],
+      "autumn":["boots","jacket","raincoat","umbrella"]
+    }
+  ]
+}
