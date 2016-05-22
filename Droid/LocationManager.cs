@@ -50,6 +50,10 @@ namespace WeatherMeUp.Droid
 			locationManager.RequestLocationUpdates (locationProvider, 0, 0, this);
 		}
 
+		public void stopLocationServices() {
+			locationManager.RemoveUpdates (this);
+		}
+
 		public void OnLocationChanged (Location location) {
 			this.location = location;
 
