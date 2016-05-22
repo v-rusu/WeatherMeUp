@@ -35,6 +35,10 @@ namespace WeatherMeUp.iOS
 			locationManager.StartUpdatingLocation ();
 		}
 
+		public void stopLocationServices() {
+			locationManager.StopUpdatingLocation();
+		}
+
 		override public void LocationsUpdated (CLLocationManager manager, CLLocation[] locations) {
 			CLLocation location = locations.GetValue (locations.Length - 1) as CLLocation;
 

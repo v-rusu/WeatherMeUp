@@ -8,9 +8,10 @@ using UIKit;
 namespace WeatherMeUp.iOS
 {
 	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, LocationManagerDelegate
+	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, LocationManagerDelegate, WeatherManagerDelegate
 	{
 		LocationManager locationManager = new LocationManager ();
+		WeatherManager weatherManager;
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -27,6 +28,17 @@ namespace WeatherMeUp.iOS
 
 		public void locationManagerDidUpdateLocation (LocationManager manager) {
 			System.Diagnostics.Debug.WriteLine ("Long: {0}, Lat: {1}", manager.longitude, manager.latitude);
+
+			weatherManager = new WeatherManager (manager.latitude, manager.longitude);
+			weatherManager.dlg = this;
+
+			manager.stopLocationServices ();
+		}
+
+		public void weatherManagerDidUpdate (WeatherManager manager) {
+			System.Diagnostics.Debug.WriteLine ("Morning conditions: " + manager.weatherDict [WeatherManager.kMorningKey].condition);
+			System.Diagnostics.Debug.WriteLine ("Afternoon conditions: " + manager.weatherDict [WeatherManager.kAfternoonKey].condition);
+			System.Diagnostics.Debug.WriteLine ("Evening conditions: " + manager.weatherDict [WeatherManager.kEveningKey].condition);
 		}
 	}
 }
